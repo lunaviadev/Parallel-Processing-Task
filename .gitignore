@@ -19,6 +19,10 @@ mono_crash.*.json
 build/
 
 # FMOD Studio per-user/cache folders
-fmod-project/.cache/
-fmod-project/.user/
+fmod-project/**/.cache/
+fmod-project/**/.user/
+fmod-project/**/.unsaved/
 
+
+__pycache__/
+*.pyc

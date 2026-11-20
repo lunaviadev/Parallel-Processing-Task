@@ -1,72 +1,78 @@
-# Technical Commentary: Red Painter
+# Technical Commentary / Devlog: Red Painter
 
-**Engine:** Godot 4.7.2 (GDScript) · **CPU tested:** AMD Ryzen 7 260 (8 cores / 16 threads) · **Middleware:** FMOD Studio via the `fmod-gdextension` plugin
+**Engine:** Godot 4.7.2 (GDScript) · **CPU:** Intel Core i7-12700KF (12 cores / 20 threads) · **Middleware:** FMOD Studio 2.03 via `fmod-gdextension`
 
-Red Painter covers both mini-projects in one game. The player paints on a 512×512 canvas to hit a target "redness". The red-channel sum that decides the score is computed in parallel several times a second. FMOD plays the music and sound effects, and the same red value drives an adaptive music parameter.
+Red Painter is a speed-painting puzzle game wrapped in a Frutiger Aero "operating system". It boots to a glossy desktop with icons, draggable glass windows, a start orb and a taskbar. Each board is a grid of tiles, and each tile has a target: FULL (crimson), HALF (rose) or OFF (water). Hazards and power bubbles push against you: bleach and spiller blobs, shifting tiles, Freeze, Bucket, Mega brush, Rinse and +Time. The red channel of the whole canvas is summed in parallel ten times a second. Those sums score every tile and drive the adaptive FMOD music.
 
 ---
 
-## Part 1: Parallel Processing (≈500 words)
+## Part 1: Parallel Processing
 
-### How multithreading was implemented
-The brief names Unity's Job System and Unreal's ParallelFor. Godot's equivalent is the **`WorkerThreadPool`**, a pool with one worker per logical core. Its `add_group_task(callable, elements, tasks_needed)` behaves like `ParallelFor` or `IJobParallelFor`: it calls one function once per element index and spreads those calls across the workers.
+### Implementation
+The brief names Unity Jobs and Unreal ParallelFor. Godot's equivalent is **`WorkerThreadPool.add_group_task(callable, elements, tasks_needed)`**. It runs one callable per element index across a pool with one worker per logical core, which is the same model as `IJobParallelFor` or `ParallelFor`.
 
-`scripts/red_sum.gd` (`RedSum`) implements three paths:
+`scripts/red_sum.gd` contains four paths:
+- **`sum_single`**: the baseline. It reads every 4th byte (R) of the RGBA8 buffer on one thread.
+- **`sum_parallel`**: splits the rows into bands (4 per thread). Each band sums into a local variable and writes one partial total into its own slot. The main thread waits on `wait_for_group_task_completion` and adds up the partials. The pixel buffer is shared read-only, so the hot loop needs no locks.
+- **`sum_tiles`**: used by the game. Each band also splits its rows into N×N tile columns and returns per-tile partials. One parallel pass scores the whole board.
+- **`sum_rgb_parallel`**: sums R, G and B in one pass.
 
-- **`sum_single`**: one tight loop over the RGBA8 byte array, reading every 4th byte (the R byte). This is the baseline.
-- **`sum_parallel`**: splits the image's rows into bands (by default 4 per thread, e.g. 64 for 16 threads). Each element of the group task sums one band. All workers read the same byte array, which is never written, so no locking is needed while summing. Each band adds into a local variable and writes its partial total once, into its own slot of a `PackedInt64Array`, guarded by a mutex that is taken only once per band. The main thread waits with `wait_for_group_task_completion` and then adds up the partial totals. This is the same map-reduce pattern a Burst `IJobParallelFor` with a per-batch `NativeArray` would use.
-- **`sum_rgb_parallel`**: an optional extension that sums R, G and B in one pass over memory.
+Images are loaded from disk with `Image.load_from_file` (a native file dialog, or `--image=` on the command line) and converted to RGBA8. A headless test (`tests/test_red_sum.gd`) checks every path against known totals, and checks the per-tile sums against `Image.get_region` with uneven grids and chunk counts.
 
-Images are loaded from disk with `Image.load_from_file` (a native file dialog in the Benchmark Lab) or from sample PNGs in `res://images/`. Every image is converted to `FORMAT_RGBA8` first, so byte 0 of each pixel is always red. In the game, `RedSum.sum_parallel` runs every 0.2 s over the whole canvas (262,144 pixels). It takes about **1.4 ms**, well inside a 16.6 ms frame.
+### Telemetry
+Every run records its mode, threads, chunks, resolution, sum, mean R and `Time.get_ticks_usec` duration. The `Telemetry` autoload prints `[RedSum]` lines and exports CSV + JSON with the CPU name and core count. The Benchmark Lab runs each mode 5 times on a background `Thread`, charts the averages and checks every parallel sum against the single-thread sum. In play, each session writes a JSON file with the average and p95 scan time.
 
-### Telemetry collected
-Each run records its mode, worker count, chunk count, resolution, pixel count, the sum, mean R, and execution time in microseconds (`Time.get_ticks_usec`). The `Telemetry` autoload prints a `[RedSum] …` line per run and exports the session to **CSV and JSON** under `user://telemetry/`. The JSON also records the CPU name and core count. The Benchmark Lab runs single-thread, then 1, 2, 4, 8 and 16 workers, N times each (on a separate `Thread`, so the UI keeps drawing). It reports average, minimum and maximum times and the speed-up, and draws a bar chart. Every parallel result is checked against the single-thread sum ("match"). A headless test (`tests/test_red_sum.gd`) checks the sums against a known total, including uneven chunking and RGB8 input.
-
-Results on a 4096×4096 image (16.7 M pixels, 5 runs, windowed):
+Results for a 4096² image loaded from disk, measured in the exported build (`media/benchmark_telemetry.csv`):
 
 | Mode | Avg ms | Speed-up |
 |---|---|---|
-| single | 372.0 | ×1.00 |
-| parallel ×1 | 372.0 | ×1.00 |
-| parallel ×2 | 189.3 | ×1.97 |
-| parallel ×4 | 110.5 | ×3.37 |
-| parallel ×8 | 66.2 | ×5.62 |
-| parallel ×16 | ≈43 | ≈×8.7 |
+| single | 209.7 | ×1.00 |
+| parallel ×2 | 107.8 | ×1.95 |
+| parallel ×4 | 65.4 | ×3.21 |
+| parallel ×8 | 37.5 | ×5.59 |
+| parallel ×16 | 27.0 | ×7.77 |
+| parallel ×20 | 25.1 | ×8.35 |
+| tiles 4×4 ×20 | 26.7 | ×7.85 |
 
-### Tools and APIs
-Godot `WorkerThreadPool`, `Thread`, `Mutex`, `Image`/`PackedByteArray`, `Time.get_ticks_usec`, `FileAccess`/`JSON` for export, and `OS.get_processor_count`.
+In the game, the 512² canvas scan averaged **0.75 ms** (under 5% of a 60 fps frame).
+
+![Benchmark Lab running in the exported build](media/benchmark.gif)
+
+*Benchmark Lab in the exported build: [full video](media/benchmark.mp4). Below, the chart and the per-run log output, where every parallel sum is checked against single-thread ("match").*
+
+![Benchmark chart and log output](media/benchmark_screenshot.png)
 
 ### How the results inform optimisation
-Going from 1 to 2 workers almost doubles the speed. Beyond 8 workers the gains flatten: there are only 8 physical cores, so the 16 SMT threads share execution units, and the loop becomes limited by memory bandwidth. Two optimisation rules follow. First, size the pool to the physical cores for this kind of memory-heavy work. Second, chunks need to be big enough to hide the cost of scheduling a task. In headless runs, "parallel ×1" was about 1.5× slower than single-thread, which suggests that handing work to a pool worker has a real cost for small amounts of work. The game therefore samples the canvas only five times a second instead of every frame.
-
-The biggest remaining cost is the GDScript interpreter itself, at about 22 ns per pixel. The telemetry points to the next step: move the inner loop into a C++ GDExtension (Godot's equivalent of Burst), or into a compute shader. The same CSV would then measure the improvement.
+Scaling is almost linear up to 8 workers, matching the 8 performance cores. From 16 to 20 threads the gain is 7%: the E-cores and SMT siblings add little to a memory-bound loop. Sizing the pool to the physical cores would cost almost no speed and leave threads free for the game. Splitting into tiles costs about 6% over a flat scan, so per-region analysis is nearly free once the work is parallel. Parallel ×1 matching single-thread shows that dispatch overhead is negligible at this chunk size. The remaining cost is the GDScript interpreter, at about 12.5 ns per pixel. The next step is to move `run_chunk` into a C++ GDExtension (Godot's equivalent of Burst) or a compute shader, and measure the gain with the same CSV.
 
 ---
 
-## Part 2: Audio Middleware, FMOD (≈500 words)
+## Part 2: Audio Middleware (FMOD)
 
-### How FMOD was integrated
-FMOD is connected through **fmod-gdextension** (utopia-rise), a GDExtension that exposes the FMOD Studio API to GDScript as the `FmodServer` singleton. The plugin sits in `parallel-gaming/addons/fmod/` along with the FMOD runtime DLLs. The sound design lives in an FMOD Studio project (`fmod-project/RedPainter.fspro`), whose banks are built into `parallel-gaming/banks/Desktop/` (see `docs/FMOD_SETUP.md`).
+### Integration
+FMOD runs through **fmod-gdextension** (FMOD 2.03 runtime). It exposes the `FmodServer` singleton, and its DLLs ship next to the exe. The audio is free, licensed placeholder content picked to suit the Aero mood: a bossa "shop" theme, *Brassy Bubbles*, *Underwater Theme II* and Kenney's glassy interface SFX, all CC0 except one CC-BY jingle (see `CREDITS.md`). `fmod-project/tools/build_project.js`, run headless with `fmodstudiocl.exe -script`, imports those files, creates the whole Studio project and builds `Master.bank` plus `Master.strings.bank`. All game code calls one autoload, `scripts/audio.gd`. It loads the banks, validates all 30 event and snapshot paths, and degrades to log-only if FMOD is missing.
 
-All game code goes through one autoload, `scripts/audio.gd`. At start-up it checks `Engine.has_singleton("FmodServer")` and loads `Master.strings.bank` and `Master.bank` with `load_bank`, keeping references so the banks stay loaded. It then checks the event paths with `check_event_path`. Gameplay code only calls `Audio.play_one_shot()`, `start_music()` or `set_redness()`. This keeps the middleware behind one interface. If the plugin or banks are missing, the game still runs and the log marks each trigger `fmod=no`.
+### Events, parameters and logging
+- **`Music/Desktop`** loops on the desktop, with ADSR fade-in and fade-out. **`Music/Theme`** holds two async looping tracks that crossfade on **Mode** (Classic or Zen). **Redness** (the parallel red sum) opens a low-pass from 900 Hz to 22 kHz, so the music "comes into focus" as you paint. **Intensity** (time pressure, blobs, combo) raises volume and pitch.
+- **26 one-shots**: brushes, blob pops and bubbles use multi-instruments with randomiser modulators, and a **Pan** parameter follows the canvas x position. Tile and board stingers rise in pitch with **Combo**. There are separate power-up, shift and perfect cues, plus OS sounds (startup, window open/close, notify, hover, click).
+- **Snapshots**: `Pause` (duck plus a 700 Hz low-pass) and `Freeze` (music pitched down 3 semitones and filtered). VCAs drive the Audio Mixer sliders.
 
-### Events triggered and logged
-| Event | Trigger |
+Every trigger is logged to the console and to a per-session `audio_log_<time>.csv` (path, action, count, parameter value, position, editor/export). `get_performance_data()` writes CPU and memory once a second to `fmod_perf_<time>.csv`. **F3** shows it all live.
+
+### Validation in the packaged build
+`export_presets.cfg` includes `banks/*.bank`. I ran the exported debug exe outside the editor with `--fmod-driver="cable input"`, so FMOD's real output went to a virtual cable that ffmpeg recorded. The game captured its own frames, and the two were synced on the Pause snapshot. [`media/fmod_build.mp4`](media/fmod_build.mp4) is that run (with sound). The autoplay demo (`--demo`) plays it, so the input is scripted.
+
+<a href="media/fmod_build.mp4"><img src="media/thumb_fmod_build.png" width="420" alt="FMOD build video"></a> <a href="media/zen_mode.mp4"><img src="media/thumb_zen_mode.png" width="420" alt="Zen mode video"></a>
+
+| F3 telemetry in the build | Pause snapshot active |
 |---|---|
-| `event:/Music/Theme` | Starts on the menu and persists. It has a continuous **`Redness`** parameter (0–1) that crossfades from a calm layer to an intense layer. |
-| `event:/SFX/Brush` | Each new paint stroke |
-| `event:/SFX/RoundEnd_Win` | A target is held for 1.5 s, or the game ends with 3+ targets |
-| `event:/SFX/RoundEnd_Lose` | Time runs out with fewer than 3 targets |
-| `event:/UI/Click` | Every button press |
+| <img src="media/fmod_telemetry_hud.png" width="420" alt="F3 overlay showing build: export and trigger counts"> | <img src="media/pause_snapshot.png" width="420" alt="Pause dialog"> |
 
-The music is adaptive: every parallel red-sum sample calls `set_parameter_by_name("Redness", redness)`, so the soundtrack tracks how red the canvas is. Every trigger is logged to the console and to `user://telemetry/audio_log.csv` with a timestamp, the event path, the action, a **per-event trigger count**, whether FMOD was active, the parameter value, the **brush position** for brush events, and whether it ran in the **editor or the exported build**.
+The evidence:
+- The console prints `FMOD ready - 2 banks, 30 events`.
+- All 343 log rows read `fmod=yes build=export`, covering 26 distinct events and parameters.
+- In the recorded output, Pause drops the mix from about −24 to −34 dB, and content above 3 kHz from about −40 to −76 dB, which shows the low-pass working.
+- FMOD averaged 0.38% DSP and 0.24% Studio CPU, with 4.8 MB peak memory.
 
-### Validating in a packaged build
-The Windows export preset (`export_presets.cfg`) adds `banks/*.bank` to the include filter. Banks are not Godot resources, so without this they would be left out of the `.pck` and FMOD would load nothing. The GDExtension copies the FMOD DLLs next to the executable. Validation steps:
-
-1. Export **Windows Desktop** to `build/RedPainter.exe`, with the console wrapper enabled.
-2. Run `RedPainter.console.exe` on its own, outside the editor. The console must show `[Audio] FMOD ready - 2 banks loaded`, and the menu footer shows the same status.
-3. Play a round and confirm by ear that the music, brush, click and win/lose events play, and that the music intensifies as the canvas gets redder.
-4. Open `%APPDATA%\Godot\app_userdata\Red Painter\telemetry\audio_log.csv` and check that its rows read `build=export`, `fmod=yes`, with the trigger counts rising. This shows the events fired from the packaged build itself, not the editor.
-
-The video in `media/` shows these steps.
+### Design decisions and next steps
+I kept every FMOD call behind `audio.gd`, so gameplay and the OS shell only see event names and never touch the API. Generating the Studio project from a script makes the sound design reproducible: swapping a placeholder track means changing one file name and re-running a single command. Choosing Redness as a low-pass rather than a volume crossfade means two unrelated licensed tracks never clash in key, while the player still hears the canvas fill up. Next I would make the blobs 3D events with a spatialiser and a 2D listener, record an FMOD Live Update profiler session, and compare FMOD's CPU figures against Godot's own `AudioStreamPlayer`.

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{70f90764-3943-45eb-8df3-4eb044e0c984}">
+		<property name="name">
+			<value>Redness</value>
+		</property>
+		<relationship name="folder">
+			<destination>{a418e0de-c7d0-05c9-280a-b529dc02e12e}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{e2fb76f2-df38-4f30-8ad5-133dc054b992}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{e2fb76f2-df38-4f30-8ad5-133dc054b992}" />
+</objects>

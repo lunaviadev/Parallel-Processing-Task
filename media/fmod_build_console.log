@@ -1,0 +1,420 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4070 Ti
+
+FMOD Sound System: Successfully initialized
+FMOD Sound System: Live update enabled!
+[Telemetry] cpu=12th Gen Intel(R) Core(TM) i7-12700KF logical cores=20  pool threads=20  user dir=C:/Users/kinab/AppData/Roaming/Godot/app_userdata/Red Painter/telemetry
+[Audio] FMOD ready - 2 banks, 30 events  (log: C:/Users/kinab/AppData/Roaming/Godot/app_userdata/Red Painter/telemetry/audio_log_2026-11-20T02-15-47.csv)
+[Audio] driver="CABLE Input (VB-Audio Virtual Cable)" events_ok=30/30
+[Capture] recording frames to C:/Users/kinab/AppData/Local/Temp/claude/8efe305177bbd578/32fa0127-d49c-4059-b5d0-ead4168d1c24/scratchpad/rec_fmod_build  t0_ms=1990.9
+[Boot] FMOD ready - 2 banks, 30 events | 12th Gen Intel(R) Core(TM) i7-12700KF | 20 threads
+[Audio] t=2.21s event=event:/UI/Startup action=one_shot count=1 fmod=yes value=0.00 pos=(0,0) build=export
+[Audio] t=5.66s event=event:/Music/Desktop action=start count=1 fmod=yes value=0.00 pos=(0,0) build=export
+[Audio] t=5.66s event=Redness action=param count=1 fmod=yes value=0.00 pos=(0,0) build=export
+[Audio] t=5.66s event=Intensity action=param count=1 fmod=yes value=0.00 pos=(0,0) build=export
+[Audio] t=5.71s event=event:/UI/WindowOpen action=one_shot count=1 fmod=yes value=0.00 pos=(0,0) build=export
+[Audio] t=5.72s event=event:/UI/Notify action=one_shot count=1 fmod=yes value=0.00 pos=(0,0) build=export
+[Audio] t=9.11s event=event:/UI/Click action=one_shot count=1 fmod=yes value=0.00 pos=(0,0) build=export
+[Demo] autoplay bot active (input is injected into CanvasPainter)
+[Audio] t=9.18s event=Mode action=param count=1 fmod=yes value=0.00 pos=(0,0) build=export
+[Audio] t=9.18s event=event:/Music/Desktop action=stop count=1 fmod=yes value=0.00 pos=(0,0) build=export
+[Audio] t=9.18s event=event:/Music/Theme action=start count=1 fmod=yes value=0.00 pos=(0,0) build=export
+[Game] session start: mode=classic sampling tile red sums every 0.10s with WorkerThreadPool (20 threads)
+[Audio] t=9.18s event=Redness action=param count=2 fmod=yes value=0.63 pos=(0,0) build=export
+[Game] board 1: grid=2x2 time=22s blobs=0 shift=0 targets=["OFF", "FULL", "OFF", "HALF"]
+[Audio] t=10.99s event=event:/SFX/Brush action=one_shot count=1 fmod=yes value=-0.86 pos=(36,292) build=export
+[Audio] t=11.07s event=event:/SFX/TileMatch action=one_shot count=1 fmod=yes value=-0.50 pos=(128,384) build=export
+[Game] state=PLAYING board=1 time=21.3 redness=0.619 matched=2/4 score=25 combo=1 blobs=0 bubbles=0 last_tiles_ms=0.679 avg_ms=0.691
+[Audio] t=12.20s event=event:/SFX/Brush action=one_shot count=2 fmod=yes value=-0.86 pos=(36,36) build=export
+[Audio] t=12.41s event=Redness action=param count=3 fmod=yes value=0.60 pos=(0,0) build=export
+[Audio] t=12.93s event=Redness action=param count=4 fmod=yes value=0.50 pos=(0,0) build=export
+[Audio] t=12.93s event=event:/SFX/TileMatch action=one_shot count=2 fmod=yes value=-0.50 pos=(128,128) build=export
+[Audio] t=12.93s event=Intensity action=param count=2 fmod=yes value=0.12 pos=(0,0) build=export
+[Game] state=PLAYING board=1 time=19.3 redness=0.495 matched=3/4 score=75 combo=2 blobs=0 bubbles=0 last_tiles_ms=0.705 avg_ms=0.708
+[Audio] t=13.26s event=event:/SFX/Brush action=one_shot count=3 fmod=yes value=0.14 pos=(292,292) build=export
+[Audio] t=13.85s event=Redness action=param count=5 fmod=yes value=0.39 pos=(0,0) build=export
+[Audio] t=13.86s event=event:/SFX/TileMatch action=one_shot count=3 fmod=yes value=0.50 pos=(384,384) build=export
+[Audio] t=13.86s event=event:/SFX/BoardClear action=one_shot count=1 fmod=yes value=1.00 pos=(0,0) build=export
+[Game] board 1 cleared: bonus=380 perfect=false score=530 time_left=18.6
+[Audio] t=13.86s event=Intensity action=param count=3 fmod=yes value=0.00 pos=(0,0) build=export
+[Game] state=CLEARED board=1 time=18.6 redness=0.392 matched=4/4 score=530 combo=3 blobs=0 bubbles=0 last_tiles_ms=0.726 avg_ms=0.706
+[Audio] t=15.56s event=Redness action=param count=6 fmod=yes value=0.24 pos=(0,0) build=export
+[Game] board 2: grid=3x3 time=32s blobs=1 shift=0 targets=["OFF", "OFF", "FULL", "FULL", "HALF", "HALF", "FULL", "OFF", "HALF"]
+[Game] state=PLAYING board=2 time=31.7 redness=0.240 matched=3/9 score=530 combo=0 blobs=0 bubbles=0 last_tiles_ms=0.703 avg_ms=0.711
+[Audio] t=17.55s event=event:/SFX/Brush action=one_shot count=4 fmod=yes value=0.45 pos=(371,30) build=export
+[Audio] t=17.78s event=Redness action=param count=7 fmod=yes value=0.32 pos=(0,0) build=export
+[Audio] t=17.89s event=event:/SFX/TileMatch action=one_shot count=4 fmod=yes value=0.66 pos=(426,85) build=export
+[Audio] t=18.39s event=event:/SFX/Brush action=one_shot count=5 fmod=yes value=-0.88 pos=(30,200) build=export
+[Audio] t=18.60s event=Redness action=param count=8 fmod=yes value=0.42 pos=(0,0) build=export
+[Audio] t=18.70s event=event:/SFX/TileMatch action=one_shot count=5 fmod=yes value=-0.67 pos=(85,255) build=export
+[Audio] t=19.02s event=event:/SFX/Brush action=one_shot count=6 fmod=yes value=-0.88 pos=(30,30) build=export
+[Game] state=PLAYING board=2 time=29.7 redness=0.411 matched=5/9 score=680 combo=2 blobs=0 bubbles=0 last_tiles_ms=0.671 avg_ms=0.740
+[Audio] t=19.22s event=Redness action=param count=9 fmod=yes value=0.39 pos=(0,0) build=export
+[Audio] t=19.32s event=Intensity action=param count=4 fmod=yes value=0.10 pos=(0,0) build=export
+[Audio] t=19.32s event=event:/SFX/TileMatch action=one_shot count=6 fmod=yes value=-0.67 pos=(85,85) build=export
+[Audio] t=19.35s event=event:/SFX/BlobSpawn action=one_shot count=1 fmod=yes value=0.19 pos=(305,496) build=export
+[Audio] t=19.35s event=snapshot:/Pause action=start count=1 fmod=yes value=0.00 pos=(0,0) build=export
+[Audio] t=19.35s event=event:/UI/WindowOpen action=one_shot count=2 fmod=yes value=0.00 pos=(0,0) build=export
+[Game] paused
+[Audio] t=21.85s event=snapshot:/Pause action=stop count=1 fmod=yes value=0.00 pos=(0,0) build=export
+[Audio] t=21.86s event=event:/UI/WindowClose action=one_shot count=1 fmod=yes value=0.00 pos=(0,0) build=export
+[Game] resumed
+[Audio] t=22.16s event=event:/SFX/Brush action=one_shot count=7 fmod=yes value=-0.22 pos=(200,200) build=export
+[Audio] t=22.25s event=Intensity action=param count=5 fmod=yes value=0.20 pos=(0,0) build=export
+[Audio] t=22.43s event=event:/SFX/TileMatch action=one_shot count=7 fmod=yes value=-0.00 pos=(255,255) build=export
+[Audio] t=22.55s event=Redness action=param count=10 fmod=yes value=0.41 pos=(0,0) build=export
+[Audio] t=22.82s event=event:/SFX/BlobPop action=one_shot count=1 fmod=yes value=0.23 pos=(316,467) build=export
+[Audio] t=22.82s event=Intensity action=param count=6 fmod=yes value=0.17 pos=(0,0) build=export
+[Audio] t=23.08s event=event:/SFX/Brush action=one_shot count=8 fmod=yes value=0.45 pos=(371,371) build=export
+[Audio] t=23.38s event=event:/SFX/TileMatch action=one_shot count=8 fmod=yes value=0.66 pos=(426,426) build=export
+[Audio] t=23.38s event=Intensity action=param count=7 fmod=yes value=0.21 pos=(0,0) build=export
+[Game] state=PLAYING board=2 time=27.7 redness=0.451 matched=8/9 score=1430 combo=5 blobs=0 bubbles=0 last_tiles_ms=0.725 avg_ms=0.738
+[Audio] t=23.75s event=event:/SFX/Brush action=one_shot count=9 fmod=yes value=0.45 pos=(371,200) build=export
+[Audio] t=24.12s event=Redness action=param count=11 fmod=yes value=0.50 pos=(0,0) build=export
+[Audio] t=24.12s event=event:/SFX/TileMatch action=one_shot count=9 fmod=yes value=0.66 pos=(426,255) build=export
+[Audio] t=24.12s event=event:/SFX/BoardClear action=one_shot count=2 fmod=yes value=2.00 pos=(0,0) build=export
+[Audio] t=24.12s event=event:/SFX/Perfect action=one_shot count=1 fmod=yes value=0.00 pos=(0,0) build=export
+[Game] board 2 cleared: bonus=1410 perfect=true score=3140 time_left=27.3
+[Audio] t=24.12s event=Intensity action=param count=8 fmod=yes value=0.00 pos=(0,0) build=export
+[Game] state=CLEARED board=2 time=27.3 redness=0.500 matched=9/9 score=3140 combo=6 blobs=0 bubbles=0 last_tiles_ms=0.774 avg_ms=0.762
+[Audio] t=25.80s event=Redness action=param count=12 fmod=yes value=0.20 pos=(0,0) build=export
+[Game] board 3: grid=3x3 time=30s blobs=2 shift=0 targets=["OFF", "FULL", "HALF", "HALF", "HALF", "FULL", "OFF", "OFF", "FULL"]
+[Game] state=PLAYING board=3 time=29.4 redness=0.202 matched=0/9 score=3140 combo=0 blobs=0 bubbles=0 last_tiles_ms=0.853 avg_ms=0.759
+[Audio] t=27.82s event=event:/SFX/Brush action=one_shot count=10 fmod=yes value=-0.88 pos=(30,30) build=export
+[Audio] t=27.92s event=Redness action=param count=13 fmod=yes value=0.17 pos=(0,0) build=export
+[Audio] t=28.12s event=event:/SFX/TileMatch action=one_shot count=10 fmod=yes value=-0.67 pos=(85,85) build=export
+[Audio] t=28.38s event=event:/SFX/BubbleSpawn action=one_shot count=1 fmod=yes value=0.36 pos=(348,512) build=export
+[Audio] t=28.46s event=event:/SFX/Brush action=one_shot count=11 fmod=yes value=-0.22 pos=(200,30) build=export
+[Audio] t=28.65s event=Redness action=param count=14 fmod=yes value=0.20 pos=(0,0) build=export
+[Audio] t=28.85s event=event:/SFX/TileMatch action=one_shot count=11 fmod=yes value=-0.00 pos=(255,85) build=export
+[Audio] t=29.17s event=event:/SFX/Brush action=one_shot count=12 fmod=yes value=0.45 pos=(371,30) build=export
+[Audio] t=29.42s event=Intensity action=param count=9 fmod=yes value=0.10 pos=(0,0) build=export
+[Audio] t=29.46s event=event:/SFX/TileMatch action=one_shot count=12 fmod=yes value=0.66 pos=(426,85) build=export
+[Audio] t=29.57s event=Redness action=param count=15 fmod=yes value=0.31 pos=(0,0) build=export
+[Audio] t=29.62s event=event:/SFX/BlobSpawn action=one_shot count=2 fmod=yes value=0.94 pos=(496,358) build=export
+[Game] state=PLAYING board=3 time=27.4 redness=0.306 matched=3/9 score=3590 combo=3 blobs=1 bubbles=1 last_tiles_ms=0.757 avg_ms=0.757
+[Audio] t=29.80s event=Intensity action=param count=10 fmod=yes value=0.20 pos=(0,0) build=export
+[Audio] t=29.91s event=event:/SFX/PowerTime action=one_shot count=1 fmod=yes value=0.43 pos=(365,468) build=export
+[Game] power time
+[Audio] t=29.92s event=Intensity action=param count=11 fmod=yes value=0.14 pos=(0,0) build=export
+[Audio] t=30.39s event=event:/SFX/Brush action=one_shot count=13 fmod=yes value=-0.88 pos=(30,200) build=export
+[Audio] t=30.59s event=event:/SFX/TileMatch action=one_shot count=13 fmod=yes value=-0.67 pos=(85,255) build=export
+[Audio] t=31.20s event=event:/SFX/BlobPop action=one_shot count=2 fmod=yes value=0.65 pos=(423,362) build=export
+[Audio] t=31.21s event=Intensity action=param count=12 fmod=yes value=0.10 pos=(0,0) build=export
+[Audio] t=31.53s event=event:/SFX/Brush action=one_shot count=14 fmod=yes value=0.45 pos=(371,200) build=export
+[Game] state=PLAYING board=3 time=31.4 redness=0.375 matched=4/9 score=4115 combo=4 blobs=0 bubbles=0 last_tiles_ms=0.687 avg_ms=0.756
+[Audio] t=31.72s event=Redness action=param count=16 fmod=yes value=0.40 pos=(0,0) build=export
+[Audio] t=31.93s event=event:/SFX/TileMatch action=one_shot count=14 fmod=yes value=0.66 pos=(426,255) build=export
+[Audio] t=31.93s event=Intensity action=param count=13 fmod=yes value=0.13 pos=(0,0) build=export
+[Audio] t=32.28s event=event:/SFX/Brush action=one_shot count=15 fmod=yes value=-0.88 pos=(30,371) build=export
+[Audio] t=32.55s event=Redness action=param count=17 fmod=yes value=0.39 pos=(0,0) build=export
+[Audio] t=32.65s event=event:/SFX/TileMatch action=one_shot count=15 fmod=yes value=-0.67 pos=(85,426) build=export
+[Audio] t=33.06s event=event:/SFX/Brush action=one_shot count=16 fmod=yes value=-0.22 pos=(200,200) build=export
+[Audio] t=33.16s event=Redness action=param count=18 fmod=yes value=0.40 pos=(0,0) build=export
+[Audio] t=33.36s event=event:/SFX/TileMatch action=one_shot count=16 fmod=yes value=-0.00 pos=(255,255) build=export
+[Game] state=PLAYING board=3 time=29.4 redness=0.432 matched=7/9 score=5465 combo=7 blobs=0 bubbles=0 last_tiles_ms=0.703 avg_ms=0.754
+[Audio] t=33.72s event=event:/SFX/BlobSpawn action=one_shot count=3 fmod=yes value=0.58 pos=(404,16) build=export
+[Audio] t=33.73s event=Intensity action=param count=14 fmod=yes value=0.23 pos=(0,0) build=export
+[Audio] t=33.75s event=event:/SFX/Brush action=one_shot count=17 fmod=yes value=0.45 pos=(371,371) build=export
+[Audio] t=34.09s event=Redness action=param count=19 fmod=yes value=0.51 pos=(0,0) build=export
+[Audio] t=34.09s event=event:/SFX/TileMatch action=one_shot count=17 fmod=yes value=0.66 pos=(426,426) build=export
+[Audio] t=34.65s event=event:/SFX/BlobPop action=one_shot count=3 fmod=yes value=0.59 pos=(407,49) build=export
+[Audio] t=34.66s event=Intensity action=param count=15 fmod=yes value=0.18 pos=(0,0) build=export
+[Audio] t=35.13s event=event:/SFX/Brush action=one_shot count=18 fmod=yes value=-0.22 pos=(200,371) build=export
+[Audio] t=35.42s event=Intensity action=param count=16 fmod=yes value=0.20 pos=(0,0) build=export
+[Audio] t=35.43s event=Redness action=param count=20 fmod=yes value=0.50 pos=(0,0) build=export
+[Audio] t=35.43s event=event:/SFX/TileMatch action=one_shot count=18 fmod=yes value=-0.00 pos=(255,426) build=export
+[Audio] t=35.43s event=event:/SFX/BoardClear action=one_shot count=3 fmod=yes value=3.00 pos=(0,0) build=export
+[Audio] t=35.43s event=event:/SFX/Perfect action=one_shot count=2 fmod=yes value=0.00 pos=(0,0) build=export
+[Game] board 3 cleared: bonus=2115 perfect=true score=9005 time_left=27.7
+[Audio] t=35.43s event=Intensity action=param count=17 fmod=yes value=0.00 pos=(0,0) build=export
+[Game] state=CLEARED board=3 time=27.7 redness=0.497 matched=9/9 score=9005 combo=9 blobs=0 bubbles=0 last_tiles_ms=0.796 avg_ms=0.752
+[Audio] t=37.13s event=Redness action=param count=21 fmod=yes value=0.20 pos=(0,0) build=export
+[Game] board 4: grid=4x4 time=46s blobs=2 shift=0 targets=["FULL", "OFF", "HALF", "FULL", "FULL", "OFF", "OFF", "OFF", "HALF", "OFF", "OFF", "OFF", "FULL", "HALF", "HALF", "HALF"]
+[Game] state=INTRO board=4 time=46.0 redness=0.202 matched=2/16 score=9005 combo=0 blobs=0 bubbles=0 last_tiles_ms=0.936 avg_ms=0.750
+[Audio] t=39.20s event=event:/SFX/Brush action=one_shot count=19 fmod=yes value=-0.91 pos=(22,22) build=export
+[Audio] t=39.45s event=event:/SFX/TileMatch action=one_shot count=19 fmod=yes value=-0.75 pos=(64,64) build=export
+[Game] state=PLAYING board=4 time=44.7 redness=0.254 matched=3/16 score=9105 combo=1 blobs=0 bubbles=0 last_tiles_ms=0.935 avg_ms=0.750
+[Audio] t=39.76s event=event:/SFX/BubbleSpawn action=one_shot count=2 fmod=yes value=0.59 pos=(408,512) build=export
+[Audio] t=39.86s event=event:/SFX/Brush action=one_shot count=20 fmod=yes value=0.09 pos=(278,22) build=export
+[Audio] t=40.06s event=event:/SFX/TileMatch action=one_shot count=20 fmod=yes value=0.25 pos=(320,64) build=export
+[Audio] t=40.48s event=event:/SFX/Brush action=one_shot count=21 fmod=yes value=0.59 pos=(406,22) build=export
+[Audio] t=40.59s event=Redness action=param count=22 fmod=yes value=0.31 pos=(0,0) build=export
+[Audio] t=40.69s event=event:/SFX/TileMatch action=one_shot count=21 fmod=yes value=0.75 pos=(448,64) build=export
+[Audio] t=40.69s event=Intensity action=param count=18 fmod=yes value=0.11 pos=(0,0) build=export
+[Audio] t=40.95s event=event:/SFX/BlobSpawn action=one_shot count=4 fmod=yes value=-0.75 pos=(64,496) build=export
+[Audio] t=41.29s event=event:/SFX/BlobPop action=one_shot count=4 fmod=yes value=-0.72 pos=(71,492) build=export
+[Game] state=PLAYING board=4 time=42.7 redness=0.329 matched=5/16 score=9905 combo=3 blobs=0 bubbles=1 last_tiles_ms=0.775 avg_ms=0.750
+[Audio] t=41.76s event=event:/SFX/PowerMega action=one_shot count=1 fmod=yes value=0.56 pos=(400,450) build=export
+[Game] power mega
+[Audio] t=42.29s event=event:/SFX/Brush action=one_shot count=22 fmod=yes value=-0.91 pos=(22,150) build=export
+[Audio] t=42.42s event=event:/SFX/TileMatch action=one_shot count=22 fmod=yes value=-0.75 pos=(64,192) build=export
+[Audio] t=42.63s event=event:/SFX/TileMatch action=one_shot count=23 fmod=yes value=-0.75 pos=(64,320) build=export
+[Audio] t=42.89s event=event:/SFX/Brush action=one_shot count=23 fmod=yes value=0.09 pos=(278,150) build=export
+[Audio] t=42.93s event=event:/SFX/TileMatch action=one_shot count=24 fmod=yes value=0.25 pos=(320,192) build=export
+[Audio] t=42.93s event=Intensity action=param count=19 fmod=yes value=0.21 pos=(0,0) build=export
+[Audio] t=43.04s event=event:/SFX/TileLost action=one_shot count=1 fmod=yes value=0.25 pos=(320,64) build=export
+[Audio] t=43.04s event=event:/SFX/TileMatch action=one_shot count=25 fmod=yes value=0.75 pos=(448,192) build=export
+[Audio] t=43.05s event=Intensity action=param count=20 fmod=yes value=0.09 pos=(0,0) build=export
+[Audio] t=43.46s event=event:/SFX/Brush action=one_shot count=24 fmod=yes value=0.09 pos=(278,22) build=export
+[Audio] t=43.66s event=event:/SFX/TileLost action=one_shot count=2 fmod=yes value=-0.25 pos=(192,64) build=export
+[Audio] t=43.66s event=event:/SFX/TileMatch action=one_shot count=26 fmod=yes value=0.25 pos=(320,64) build=export
+[Audio] t=43.67s event=event:/SFX/TileLost action=one_shot count=3 fmod=yes value=0.75 pos=(448,64) build=export
+[Game] state=PLAYING board=4 time=40.7 redness=0.355 matched=7/16 score=11505 combo=0 blobs=0 bubbles=0 last_tiles_ms=1.158 avg_ms=0.751
+[Audio] t=43.78s event=event:/SFX/TileLost action=one_shot count=4 fmod=yes value=0.25 pos=(320,192) build=export
+[Audio] t=43.99s event=event:/SFX/Brush action=one_shot count=25 fmod=yes value=0.59 pos=(406,22) build=export
+[Audio] t=44.09s event=event:/SFX/TileMatch action=one_shot count=27 fmod=yes value=0.75 pos=(448,64) build=export
+[Audio] t=44.16s event=event:/SFX/BlobSpawn action=one_shot count=5 fmod=yes value=0.94 pos=(496,284) build=export
+[Audio] t=44.16s event=Intensity action=param count=21 fmod=yes value=0.15 pos=(0,0) build=export
+[Audio] t=44.19s event=event:/SFX/TileLost action=one_shot count=5 fmod=yes value=0.25 pos=(320,64) build=export
+[Audio] t=44.29s event=event:/SFX/TileLost action=one_shot count=6 fmod=yes value=0.75 pos=(448,192) build=export
+[Audio] t=44.56s event=event:/SFX/BlobPop action=one_shot count=5 fmod=yes value=0.90 pos=(487,286) build=export
+[Audio] t=44.56s event=Intensity action=param count=22 fmod=yes value=0.09 pos=(0,0) build=export
+[Audio] t=44.99s event=event:/SFX/Brush action=one_shot count=26 fmod=yes value=0.09 pos=(278,22) build=export
+[Audio] t=45.15s event=event:/SFX/TileMatch action=one_shot count=28 fmod=yes value=0.25 pos=(320,64) build=export
+[Audio] t=45.25s event=event:/SFX/TileLost action=one_shot count=7 fmod=yes value=0.75 pos=(448,64) build=export
+[Audio] t=45.52s event=Intensity action=param count=23 fmod=yes value=0.10 pos=(0,0) build=export
+[Audio] t=45.52s event=event:/SFX/Brush action=one_shot count=27 fmod=yes value=0.59 pos=(406,22) build=export
+[Audio] t=45.53s event=event:/SFX/TileMatch action=one_shot count=29 fmod=yes value=0.75 pos=(448,64) build=export
+[Game] state=PLAYING board=4 time=38.7 redness=0.380 matched=6/16 score=11805 combo=0 blobs=0 bubbles=0 last_tiles_ms=0.675 avg_ms=0.751
+[Audio] t=45.75s event=event:/SFX/TileLost action=one_shot count=8 fmod=yes value=0.25 pos=(320,64) build=export
+[Audio] t=46.09s event=event:/SFX/Brush action=one_shot count=28 fmod=yes value=0.09 pos=(278,22) build=export
+[Audio] t=46.16s event=event:/SFX/TileMatch action=one_shot count=30 fmod=yes value=0.25 pos=(320,64) build=export
+[Audio] t=46.36s event=event:/SFX/TileLost action=one_shot count=9 fmod=yes value=0.75 pos=(448,64) build=export
+[Audio] t=46.62s event=event:/SFX/Brush action=one_shot count=29 fmod=yes value=0.59 pos=(406,22) build=export
+[Audio] t=46.68s event=event:/SFX/TileMatch action=one_shot count=31 fmod=yes value=0.75 pos=(448,64) build=export
+[Audio] t=46.78s event=event:/SFX/TileLost action=one_shot count=10 fmod=yes value=0.25 pos=(320,64) build=export
+[Audio] t=47.22s event=event:/SFX/Brush action=one_shot count=30 fmod=yes value=0.09 pos=(278,22) build=export
+[Audio] t=47.32s event=event:/SFX/TileMatch action=one_shot count=32 fmod=yes value=0.25 pos=(320,64) build=export
+[Audio] t=47.49s event=event:/SFX/TileLost action=one_shot count=11 fmod=yes value=0.75 pos=(448,64) build=export
+[Game] state=PLAYING board=4 time=36.7 redness=0.372 matched=5/16 score=11805 combo=0 blobs=0 bubbles=0 last_tiles_ms=0.726 avg_ms=0.751
+[Audio] t=47.84s event=event:/SFX/Brush action=one_shot count=31 fmod=yes value=-0.41 pos=(150,22) build=export
+[Audio] t=47.91s event=event:/SFX/TileMatch action=one_shot count=33 fmod=yes value=-0.25 pos=(192,64) build=export
+[Audio] t=48.01s event=event:/SFX/TileLost action=one_shot count=12 fmod=yes value=-0.75 pos=(64,64) build=export
+[Audio] t=48.06s event=event:/SFX/BlobSpawn action=one_shot count=6 fmod=yes value=0.94 pos=(496,188) build=export
+[Audio] t=48.06s event=Intensity action=param count=24 fmod=yes value=0.20 pos=(0,0) build=export
+[Audio] t=48.11s event=event:/SFX/TileLost action=one_shot count=13 fmod=yes value=0.25 pos=(320,64) build=export
+[Audio] t=48.38s event=event:/SFX/Brush action=one_shot count=32 fmod=yes value=0.09 pos=(278,22) build=export
+[Audio] t=48.42s event=event:/SFX/TileMatch action=one_shot count=34 fmod=yes value=0.25 pos=(320,64) build=export
+[Audio] t=48.52s event=event:/SFX/TileLost action=one_shot count=14 fmod=yes value=-0.25 pos=(192,64) build=export
+[Audio] t=48.89s event=event:/SFX/Brush action=one_shot count=33 fmod=yes value=-0.41 pos=(150,22) build=export
+[Audio] t=49.02s event=event:/SFX/BubbleSpawn action=one_shot count=3 fmod=yes value=-0.06 pos=(241,512) build=export
+[Audio] t=49.04s event=event:/SFX/TileMatch action=one_shot count=35 fmod=yes value=-0.25 pos=(192,64) build=export
+[Audio] t=49.62s event=event:/SFX/BlobPop action=one_shot count=6 fmod=yes value=0.64 pos=(420,185) build=export
+[Audio] t=49.63s event=Intensity action=param count=25 fmod=yes value=0.16 pos=(0,0) build=export
+[Game] state=PLAYING board=4 time=34.7 redness=0.339 matched=5/16 score=12105 combo=0 blobs=0 bubbles=1 last_tiles_ms=0.784 avg_ms=0.750
+[Audio] t=50.02s event=event:/SFX/Brush action=one_shot count=34 fmod=yes value=-0.91 pos=(22,22) build=export
+[Audio] t=50.16s event=event:/SFX/TileMatch action=one_shot count=36 fmod=yes value=-0.75 pos=(64,64) build=export
+[Audio] t=50.82s event=event:/SFX/PowerBucket action=one_shot count=1 fmod=yes value=-0.11 pos=(228,455) build=export
+[Game] power bucket
+[Audio] t=51.25s event=event:/SFX/BucketFill action=one_shot count=1 fmod=yes value=0.75 pos=(448,64) build=export
+[Audio] t=51.30s event=event:/SFX/TileMatch action=one_shot count=37 fmod=yes value=0.75 pos=(448,64) build=export
+[Game] state=PLAYING board=4 time=32.7 redness=0.359 matched=7/16 score=12105 combo=0 blobs=0 bubbles=0 last_tiles_ms=0.773 avg_ms=0.749
+[Audio] t=51.79s event=event:/SFX/BucketFill action=one_shot count=2 fmod=yes value=-0.25 pos=(192,192) build=export
+[Audio] t=51.82s event=event:/SFX/TileMatch action=one_shot count=38 fmod=yes value=-0.25 pos=(192,192) build=export
+[Audio] t=51.82s event=Intensity action=param count=26 fmod=yes value=0.21 pos=(0,0) build=export
+[Audio] t=51.98s event=event:/SFX/BlobSpawn action=one_shot count=7 fmod=yes value=0.94 pos=(496,62) build=export
+[Audio] t=52.46s event=event:/SFX/BlobPop action=one_shot count=7 fmod=yes value=0.92 pos=(491,74) build=export
+[Audio] t=52.76s event=event:/SFX/Brush action=one_shot count=35 fmod=yes value=0.59 pos=(406,150) build=export
+[Audio] t=52.85s event=event:/SFX/TileMatch action=one_shot count=39 fmod=yes value=0.75 pos=(448,192) build=export
+[Audio] t=53.26s event=event:/SFX/Brush action=one_shot count=36 fmod=yes value=0.09 pos=(278,150) build=export
+[Audio] t=53.36s event=Redness action=param count=23 fmod=yes value=0.30 pos=(0,0) build=export
+[Audio] t=53.36s event=event:/SFX/TileMatch action=one_shot count=40 fmod=yes value=0.25 pos=(320,192) build=export
+[Game] state=PLAYING board=4 time=30.7 redness=0.297 matched=10/16 score=12505 combo=1 blobs=0 bubbles=0 last_tiles_ms=0.760 avg_ms=0.749
+[Audio] t=53.85s event=event:/SFX/Brush action=one_shot count=37 fmod=yes value=-0.41 pos=(150,278) build=export
+[Audio] t=53.98s event=event:/SFX/TileMatch action=one_shot count=41 fmod=yes value=-0.25 pos=(192,320) build=export
+[Audio] t=54.42s event=event:/SFX/Brush action=one_shot count=38 fmod=yes value=-0.91 pos=(22,406) build=export
+[Audio] t=54.49s event=Redness action=param count=24 fmod=yes value=0.30 pos=(0,0) build=export
+[Audio] t=54.70s event=event:/SFX/TileMatch action=one_shot count=42 fmod=yes value=-0.75 pos=(64,448) build=export
+[Audio] t=54.70s event=Intensity action=param count=27 fmod=yes value=0.30 pos=(0,0) build=export
+[Audio] t=54.95s event=event:/SFX/Brush action=one_shot count=39 fmod=yes value=-0.41 pos=(150,406) build=export
+[Audio] t=55.22s event=event:/SFX/TileMatch action=one_shot count=43 fmod=yes value=-0.25 pos=(192,448) build=export
+[Audio] t=55.68s event=event:/SFX/Brush action=one_shot count=40 fmod=yes value=0.59 pos=(406,278) build=export
+[Game] state=PLAYING board=4 time=28.7 redness=0.366 matched=13/16 score=13405 combo=4 blobs=0 bubbles=0 last_tiles_ms=0.824 avg_ms=0.750
+[Audio] t=55.85s event=event:/SFX/BlobSpawn action=one_shot count=8 fmod=yes value=-0.82 pos=(47,496) build=export
+[Audio] t=55.85s event=Intensity action=param count=28 fmod=yes value=0.41 pos=(0,0) build=export
+[Audio] t=55.95s event=event:/SFX/TileMatch action=one_shot count=44 fmod=yes value=0.75 pos=(448,320) build=export
+[Audio] t=56.33s event=event:/SFX/BlobPop action=one_shot count=8 fmod=yes value=-0.78 pos=(56,485) build=export
+[Audio] t=56.33s event=Intensity action=param count=29 fmod=yes value=0.38 pos=(0,0) build=export
+[Audio] t=56.60s event=event:/SFX/Brush action=one_shot count=41 fmod=yes value=0.09 pos=(278,406) build=export
+[Audio] t=56.81s event=event:/SFX/BubbleSpawn action=one_shot count=4 fmod=yes value=-0.10 pos=(231,512) build=export
+[Audio] t=56.88s event=event:/SFX/TileMatch action=one_shot count=45 fmod=yes value=0.25 pos=(320,448) build=export
+[Audio] t=56.88s event=Intensity action=param count=30 fmod=yes value=0.41 pos=(0,0) build=export
+[Audio] t=57.18s event=event:/SFX/Brush action=one_shot count=42 fmod=yes value=0.59 pos=(406,406) build=export
+[Audio] t=57.39s event=event:/SFX/TileMatch action=one_shot count=46 fmod=yes value=0.75 pos=(448,448) build=export
+[Audio] t=57.39s event=event:/SFX/BoardClear action=one_shot count=4 fmod=yes value=4.00 pos=(0,0) build=export
+[Game] board 4 cleared: bonus=1880 perfect=false score=17385 time_left=27.0
+[Audio] t=57.39s event=Intensity action=param count=31 fmod=yes value=0.00 pos=(0,0) build=export
+[Game] state=CLEARED board=4 time=27.0 redness=0.391 matched=16/16 score=17385 combo=7 blobs=0 bubbles=1 last_tiles_ms=0.763 avg_ms=0.750
+[Game] board 5: grid=4x4 time=44s blobs=2 shift=1 targets=["OFF", "OFF", "HALF", "OFF", "HALF", "FULL", "OFF", "FULL", "OFF", "FULL", "FULL", "FULL", "OFF", "FULL", "HALF", "FULL"]
+[Game] state=INTRO board=5 time=44.0 redness=0.344 matched=6/16 score=17385 combo=0 blobs=0 bubbles=0 last_tiles_ms=1.101 avg_ms=0.750
+[Audio] t=61.20s event=event:/SFX/Brush action=one_shot count=43 fmod=yes value=-0.41 pos=(150,22) build=export
+[Audio] t=61.55s event=event:/SFX/TileMatch action=one_shot count=47 fmod=yes value=-0.25 pos=(192,64) build=export
+[Game] state=PLAYING board=5 time=42.7 redness=0.329 matched=7/16 score=17510 combo=1 blobs=0 bubbles=0 last_tiles_ms=0.862 avg_ms=0.749
+[Audio] t=61.73s event=event:/SFX/Brush action=one_shot count=44 fmod=yes value=-0.41 pos=(150,150) build=export
+[Audio] t=62.06s event=event:/SFX/TileMatch action=one_shot count=48 fmod=yes value=-0.25 pos=(192,192) build=export
+[Audio] t=62.28s event=event:/SFX/Brush action=one_shot count=45 fmod=yes value=0.59 pos=(406,150) build=export
+[Audio] t=62.35s event=Redness action=param count=25 fmod=yes value=0.41 pos=(0,0) build=export
+[Audio] t=62.56s event=event:/SFX/TileMatch action=one_shot count=49 fmod=yes value=0.75 pos=(448,192) build=export
+[Audio] t=62.56s event=Intensity action=param count=32 fmod=yes value=0.11 pos=(0,0) build=export
+[Audio] t=62.91s event=event:/SFX/BlobSpawn action=one_shot count=9 fmod=yes value=-0.39 pos=(156,496) build=export
+[Audio] t=62.93s event=event:/SFX/Brush action=one_shot count=46 fmod=yes value=-0.91 pos=(22,150) build=export
+[Audio] t=63.18s event=event:/SFX/TileMatch action=one_shot count=50 fmod=yes value=-0.75 pos=(64,192) build=export
+[Audio] t=63.18s event=Intensity action=param count=33 fmod=yes value=0.21 pos=(0,0) build=export
+[Audio] t=63.46s event=event:/SFX/Brush action=one_shot count=47 fmod=yes value=-0.91 pos=(22,278) build=export
+[Audio] t=63.69s event=event:/SFX/TileMatch action=one_shot count=51 fmod=yes value=-0.75 pos=(64,320) build=export
+[Game] state=PLAYING board=5 time=40.7 redness=0.428 matched=11/16 score=19260 combo=5 blobs=1 bubbles=0 last_tiles_ms=0.804 avg_ms=0.749
+[Audio] t=64.09s event=event:/SFX/BlobPop action=one_shot count=9 fmod=yes value=-0.39 pos=(155,438) build=export
+[Audio] t=64.10s event=Intensity action=param count=34 fmod=yes value=0.18 pos=(0,0) build=export
+[Audio] t=64.38s event=event:/SFX/Brush action=one_shot count=48 fmod=yes value=0.09 pos=(278,278) build=export
+[Audio] t=64.42s event=event:/SFX/TileMatch action=one_shot count=52 fmod=yes value=0.25 pos=(320,320) build=export
+[Audio] t=64.42s event=Intensity action=param count=35 fmod=yes value=0.21 pos=(0,0) build=export
+[Audio] t=64.91s event=event:/SFX/Brush action=one_shot count=49 fmod=yes value=-0.41 pos=(150,406) build=export
+[Audio] t=65.25s event=event:/SFX/TileMatch action=one_shot count=53 fmod=yes value=-0.25 pos=(192,448) build=export
+[Audio] t=65.46s event=event:/SFX/Brush action=one_shot count=50 fmod=yes value=0.09 pos=(278,406) build=export
+[Game] state=PLAYING board=5 time=38.7 redness=0.471 matched=13/16 score=21260 combo=7 blobs=0 bubbles=0 last_tiles_ms=0.835 avg_ms=0.749
+[Audio] t=65.76s event=event:/SFX/TileMatch action=one_shot count=54 fmod=yes value=0.25 pos=(320,448) build=export
+[Audio] t=65.81s event=event:/SFX/TileShift action=one_shot count=1 fmod=yes value=-0.75 pos=(64,192) build=export
+[Audio] t=65.86s event=event:/SFX/TileLost action=one_shot count=15 fmod=yes value=-0.75 pos=(64,192) build=export
+[Audio] t=65.86s event=Intensity action=param count=36 fmod=yes value=0.08 pos=(0,0) build=export
+[Audio] t=66.18s event=event:/SFX/Brush action=one_shot count=51 fmod=yes value=-0.91 pos=(22,150) build=export
+[Audio] t=66.39s event=event:/SFX/BlobSpawn action=one_shot count=10 fmod=yes value=0.06 pos=(271,496) build=export
+[Audio] t=66.39s event=Intensity action=param count=37 fmod=yes value=0.15 pos=(0,0) build=export
+[Audio] t=66.48s event=event:/SFX/TileMatch action=one_shot count=55 fmod=yes value=-0.75 pos=(64,192) build=export
+[Audio] t=66.51s event=event:/SFX/BubbleSpawn action=one_shot count=5 fmod=yes value=-0.71 pos=(73,512) build=export
+[Audio] t=66.68s event=event:/SFX/Brush action=one_shot count=52 fmod=yes value=-0.41 pos=(150,278) build=export
+[Audio] t=66.69s event=Redness action=param count=26 fmod=yes value=0.51 pos=(0,0) build=export
+[Audio] t=67.00s event=event:/SFX/TileMatch action=one_shot count=56 fmod=yes value=-0.25 pos=(192,320) build=export
+[Audio] t=67.00s event=Intensity action=param count=38 fmod=yes value=0.21 pos=(0,0) build=export
+[Audio] t=67.26s event=event:/SFX/BlobPop action=one_shot count=10 fmod=yes value=0.17 pos=(299,470) build=export
+[Audio] t=67.28s event=Intensity action=param count=39 fmod=yes value=0.15 pos=(0,0) build=export
+[Audio] t=67.53s event=event:/SFX/Brush action=one_shot count=53 fmod=yes value=0.59 pos=(406,406) build=export
+[Audio] t=67.73s event=event:/SFX/TileMatch action=one_shot count=57 fmod=yes value=0.75 pos=(448,448) build=export
+[Audio] t=67.73s event=event:/SFX/BoardClear action=one_shot count=5 fmod=yes value=5.00 pos=(0,0) build=export
+[Audio] t=67.73s event=event:/SFX/Perfect action=one_shot count=3 fmod=yes value=0.00 pos=(0,0) build=export
+[Game] board 5 cleared: bonus=4200 perfect=true score=27585 time_left=36.7
+[Audio] t=67.73s event=Intensity action=param count=40 fmod=yes value=0.00 pos=(0,0) build=export
+[Game] state=CLEARED board=5 time=36.7 redness=0.559 matched=16/16 score=27585 combo=3 blobs=0 bubbles=1 last_tiles_ms=0.775 avg_ms=0.749
+[Audio] t=69.43s event=Redness action=param count=27 fmod=yes value=0.35 pos=(0,0) build=export
+[Game] board 6: grid=4x4 time=42s blobs=3 shift=1 targets=["HALF", "FULL", "OFF", "HALF", "OFF", "OFF", "FULL", "HALF", "FULL", "FULL", "OFF", "FULL", "OFF", "HALF", "FULL", "FULL"]
+[Game] state=INTRO board=6 time=42.0 redness=0.347 matched=5/16 score=27585 combo=0 blobs=0 bubbles=0 last_tiles_ms=0.692 avg_ms=0.748
+[Audio] t=71.42s event=event:/SFX/Brush action=one_shot count=54 fmod=yes value=0.59 pos=(406,22) build=export
+[Audio] t=71.75s event=event:/SFX/TileMatch action=one_shot count=58 fmod=yes value=0.75 pos=(448,64) build=export
+[Game] state=PLAYING board=6 time=41.0 redness=0.317 matched=6/16 score=27735 combo=1 blobs=0 bubbles=0 last_tiles_ms=0.752 avg_ms=0.749
+[Audio] t=72.18s event=event:/SFX/Brush action=one_shot count=55 fmod=yes value=-0.91 pos=(22,150) build=export
+[Audio] t=72.45s event=event:/SFX/TileMatch action=one_shot count=59 fmod=yes value=-0.75 pos=(64,192) build=export
+[Audio] t=72.56s event=Redness action=param count=28 fmod=yes value=0.30 pos=(0,0) build=export
+[Audio] t=72.85s event=event:/SFX/Brush action=one_shot count=56 fmod=yes value=0.09 pos=(278,150) build=export
+[Audio] t=72.86s event=Redness action=param count=29 fmod=yes value=0.30 pos=(0,0) build=export
+[Audio] t=73.18s event=event:/SFX/TileMatch action=one_shot count=60 fmod=yes value=0.25 pos=(320,192) build=export
+[Audio] t=73.18s event=Intensity action=param count=41 fmod=yes value=0.11 pos=(0,0) build=export
+[Audio] t=73.22s event=event:/SFX/BlobSpawn action=one_shot count=11 fmod=yes value=0.50 pos=(384,16) build=export
+[Audio] t=73.39s event=event:/SFX/BlobPop action=one_shot count=11 fmod=yes value=0.50 pos=(384,18) build=export
+[Game] state=PLAYING board=6 time=39.0 redness=0.327 matched=8/16 score=28935 combo=3 blobs=0 bubbles=0 last_tiles_ms=0.757 avg_ms=0.749
+[Audio] t=73.82s event=event:/SFX/Brush action=one_shot count=57 fmod=yes value=-0.91 pos=(22,22) build=export
+[Audio] t=74.12s event=event:/SFX/TileMatch action=one_shot count=61 fmod=yes value=-0.75 pos=(64,64) build=export
+[Audio] t=74.51s event=event:/SFX/Brush action=one_shot count=58 fmod=yes value=0.59 pos=(406,150) build=export
+[Audio] t=74.82s event=event:/SFX/TileMatch action=one_shot count=62 fmod=yes value=0.75 pos=(448,192) build=export
+[Audio] t=75.18s event=event:/SFX/Brush action=one_shot count=59 fmod=yes value=-0.91 pos=(22,278) build=export
+[Audio] t=75.33s event=Redness action=param count=30 fmod=yes value=0.41 pos=(0,0) build=export
+[Audio] t=75.43s event=event:/SFX/TileMatch action=one_shot count=63 fmod=yes value=-0.75 pos=(64,320) build=export
+[Audio] t=75.43s event=Intensity action=param count=42 fmod=yes value=0.22 pos=(0,0) build=export
+[Audio] t=75.68s event=event:/SFX/Brush action=one_shot count=60 fmod=yes value=-0.91 pos=(22,406) build=export
+[Game] state=PLAYING board=6 time=37.0 redness=0.407 matched=11/16 score=31185 combo=6 blobs=0 bubbles=0 last_tiles_ms=0.658 avg_ms=0.749
+[Audio] t=75.85s event=Redness action=param count=31 fmod=yes value=0.39 pos=(0,0) build=export
+[Audio] t=75.95s event=event:/SFX/TileMatch action=one_shot count=64 fmod=yes value=-0.75 pos=(64,448) build=export
+[Audio] t=76.12s event=event:/SFX/TileShift action=one_shot count=2 fmod=yes value=-0.25 pos=(192,448) build=export
+[Audio] t=76.16s event=event:/SFX/TileMatch action=one_shot count=65 fmod=yes value=-0.25 pos=(192,448) build=export
+[Audio] t=76.39s event=event:/SFX/Brush action=one_shot count=61 fmod=yes value=0.59 pos=(406,278) build=export
+[Audio] t=76.56s event=Redness action=param count=32 fmod=yes value=0.41 pos=(0,0) build=export
+[Audio] t=76.68s event=event:/SFX/TileMatch action=one_shot count=66 fmod=yes value=0.75 pos=(448,320) build=export
+[Audio] t=76.79s event=event:/SFX/Brush action=one_shot count=62 fmod=yes value=0.59 pos=(406,406) build=export
+[Audio] t=76.98s event=event:/SFX/BlobSpawn action=one_shot count=12 fmod=yes value=-0.94 pos=(16,323) build=export
+[Audio] t=76.98s event=Intensity action=param count=43 fmod=yes value=0.31 pos=(0,0) build=export
+[Audio] t=77.09s event=event:/SFX/TileMatch action=one_shot count=67 fmod=yes value=0.75 pos=(448,448) build=export
+[Audio] t=77.58s event=event:/SFX/BlobPop action=one_shot count=12 fmod=yes value=-0.87 pos=(34,310) build=export
+[Audio] t=77.58s event=Intensity action=param count=44 fmod=yes value=0.26 pos=(0,0) build=export
+[Game] state=PLAYING board=6 time=35.0 redness=0.470 matched=15/16 score=36285 combo=10 blobs=0 bubbles=0 last_tiles_ms=0.747 avg_ms=0.747
+[Audio] t=77.85s event=event:/SFX/Brush action=one_shot count=63 fmod=yes value=0.09 pos=(278,406) build=export
+[Audio] t=78.02s event=Redness action=param count=33 fmod=yes value=0.51 pos=(0,0) build=export
+[Audio] t=78.12s event=event:/SFX/TileMatch action=one_shot count=68 fmod=yes value=0.25 pos=(320,448) build=export
+[Audio] t=78.12s event=event:/SFX/BoardClear action=one_shot count=6 fmod=yes value=6.00 pos=(0,0) build=export
+[Audio] t=78.12s event=event:/SFX/Perfect action=one_shot count=4 fmod=yes value=0.00 pos=(0,0) build=export
+[Game] board 6 cleared: bonus=4860 perfect=true score=42345 time_left=34.6
+[Audio] t=78.12s event=Intensity action=param count=45 fmod=yes value=0.00 pos=(0,0) build=export
+[Game] state=CLEARED board=6 time=34.6 redness=0.529 matched=16/16 score=42345 combo=11 blobs=0 bubbles=0 last_tiles_ms=1.151 avg_ms=0.749
+[Audio] t=79.83s event=Redness action=param count=34 fmod=yes value=0.27 pos=(0,0) build=export
+[Game] board 7: grid=4x4 time=40s blobs=3 shift=2 targets=["FULL", "FULL", "HALF", "FULL", "FULL", "HALF", "FULL", "OFF", "OFF", "OFF", "OFF", "FULL", "OFF", "OFF", "OFF", "HALF"]
+[Game] state=PLAYING board=7 time=39.4 redness=0.267 matched=4/16 score=42345 combo=0 blobs=0 bubbles=0 last_tiles_ms=0.714 avg_ms=0.748
+[Audio] t=81.89s event=event:/SFX/Brush action=one_shot count=64 fmod=yes value=-0.91 pos=(22,22) build=export
+[Audio] t=82.16s event=event:/SFX/TileMatch action=one_shot count=69 fmod=yes value=-0.75 pos=(64,64) build=export
+[Audio] t=82.45s event=event:/SFX/Brush action=one_shot count=65 fmod=yes value=0.09 pos=(278,22) build=export
+[Audio] t=82.58s event=event:/SFX/TileMatch action=one_shot count=70 fmod=yes value=0.25 pos=(320,64) build=export
+[Audio] t=82.72s event=event:/SFX/BubbleSpawn action=one_shot count=6 fmod=yes value=0.14 pos=(292,512) build=export
+[Audio] t=83.05s event=event:/SFX/Brush action=one_shot count=66 fmod=yes value=-0.41 pos=(150,22) build=export
+[Audio] t=83.09s event=Redness action=param count=35 fmod=yes value=0.31 pos=(0,0) build=export
+[Audio] t=83.29s event=event:/SFX/TileMatch action=one_shot count=71 fmod=yes value=-0.25 pos=(192,64) build=export
+[Audio] t=83.29s event=Intensity action=param count=46 fmod=yes value=0.11 pos=(0,0) build=export
+[Audio] t=83.56s event=event:/SFX/Brush action=one_shot count=67 fmod=yes value=-0.91 pos=(22,150) build=export
+[Audio] t=83.65s event=event:/SFX/BlobSpawn action=one_shot count=13 fmod=yes value=-0.94 pos=(16,219) build=export
+[Game] state=PLAYING board=7 time=37.4 redness=0.374 matched=7/16 score=43395 combo=3 blobs=1 bubbles=1 last_tiles_ms=0.720 avg_ms=0.747
+[Audio] t=83.89s event=event:/SFX/TileMatch action=one_shot count=72 fmod=yes value=-0.75 pos=(64,192) build=export
+[Audio] t=83.89s event=Intensity action=param count=47 fmod=yes value=0.21 pos=(0,0) build=export
+[Audio] t=84.25s event=event:/SFX/PowerFreeze action=one_shot count=1 fmod=yes value=0.11 pos=(285,467) build=export
+[Audio] t=84.25s event=snapshot:/Freeze action=start count=1 fmod=yes value=0.00 pos=(0,0) build=export
+[Game] power freeze
+[Audio] t=84.26s event=Intensity action=param count=48 fmod=yes value=0.00 pos=(0,0) build=export
+[Audio] t=84.69s event=event:/SFX/BlobPop action=one_shot count=13 fmod=yes value=-0.85 pos=(37,235) build=export
+[Audio] t=84.99s event=event:/SFX/Brush action=one_shot count=68 fmod=yes value=-0.41 pos=(150,150) build=export
+[Audio] t=85.03s event=Redness action=param count=36 fmod=yes value=0.40 pos=(0,0) build=export
+[Audio] t=85.13s event=event:/SFX/TileMatch action=one_shot count=73 fmod=yes value=-0.25 pos=(192,192) build=export
+[Audio] t=85.59s event=event:/SFX/Brush action=one_shot count=69 fmod=yes value=0.09 pos=(278,150) build=export
+[Game] state=PLAYING board=7 time=36.9 redness=0.452 matched=9/16 score=45495 combo=5 blobs=0 bubbles=0 last_tiles_ms=0.702 avg_ms=0.748
+[Audio] t=85.85s event=event:/SFX/TileMatch action=one_shot count=74 fmod=yes value=0.25 pos=(320,192) build=export
+[Audio] t=86.06s event=event:/SFX/Brush action=one_shot count=70 fmod=yes value=0.59 pos=(406,150) build=export
+[Audio] t=86.36s event=event:/SFX/TileMatch action=one_shot count=75 fmod=yes value=0.75 pos=(448,192) build=export
+[Audio] t=86.65s event=event:/SFX/Brush action=one_shot count=71 fmod=yes value=0.59 pos=(406,22) build=export
+[Audio] t=87.00s event=Redness action=param count=37 fmod=yes value=0.50 pos=(0,0) build=export
+[Audio] t=87.00s event=event:/SFX/TileMatch action=one_shot count=76 fmod=yes value=0.75 pos=(448,64) build=export
+[Audio] t=87.27s event=event:/SFX/Brush action=one_shot count=72 fmod=yes value=0.09 pos=(278,278) build=export
+[Audio] t=87.32s event=Redness action=param count=38 fmod=yes value=0.48 pos=(0,0) build=export
+[Audio] t=87.62s event=event:/SFX/TileMatch action=one_shot count=77 fmod=yes value=0.25 pos=(320,320) build=export
+[Game] state=PLAYING board=7 time=36.9 redness=0.440 matched=13/16 score=50570 combo=9 blobs=0 bubbles=0 last_tiles_ms=0.679 avg_ms=0.748
+[Audio] t=87.79s event=event:/SFX/Brush action=one_shot count=73 fmod=yes value=0.59 pos=(406,278) build=export
+[Audio] t=88.13s event=event:/SFX/TileMatch action=one_shot count=78 fmod=yes value=0.75 pos=(448,320) build=export
+[Audio] t=88.49s event=event:/SFX/Brush action=one_shot count=74 fmod=yes value=-0.91 pos=(22,278) build=export
+[Audio] t=88.76s event=event:/SFX/TileMatch action=one_shot count=79 fmod=yes value=-0.75 pos=(64,320) build=export
+[Audio] t=89.19s event=event:/SFX/Brush action=one_shot count=75 fmod=yes value=0.59 pos=(406,406) build=export
+[Audio] t=89.27s event=snapshot:/Freeze action=stop count=1 fmod=yes value=0.00 pos=(0,0) build=export
+[Audio] t=89.27s event=Intensity action=param count=49 fmod=yes value=0.20 pos=(0,0) build=export
+[Audio] t=89.48s event=event:/SFX/TileMatch action=one_shot count=80 fmod=yes value=0.75 pos=(448,448) build=export
+[Audio] t=89.48s event=event:/SFX/BoardClear action=one_shot count=7 fmod=yes value=7.00 pos=(0,0) build=export
+[Audio] t=89.48s event=event:/SFX/Perfect action=one_shot count=5 fmod=yes value=0.00 pos=(0,0) build=export
+[Game] board 7 cleared: bonus=5880 perfect=true score=60650 time_left=36.7
+[Audio] t=89.48s event=Intensity action=param count=50 fmod=yes value=0.00 pos=(0,0) build=export
+[Game] state=CLEARED board=7 time=36.7 redness=0.467 matched=16/16 score=60650 combo=12 blobs=0 bubbles=0 last_tiles_ms=3.551 avg_ms=0.751
+[Audio] t=91.18s event=Redness action=param count=39 fmod=yes value=0.32 pos=(0,0) build=export
+[Game] board 8: grid=4x4 time=38s blobs=4 shift=2 targets=["HALF", "OFF", "HALF", "FULL", "FULL", "OFF", "OFF", "OFF", "OFF", "OFF", "HALF", "FULL", "OFF", "HALF", "HALF", "OFF"]
+[Game] state=INTRO board=8 time=38.0 redness=0.319 matched=1/16 score=60650 combo=0 blobs=0 bubbles=0 last_tiles_ms=0.789 avg_ms=0.752
+[Audio] t=93.28s event=event:/SFX/Brush action=one_shot count=76 fmod=yes value=-0.91 pos=(22,22) build=export
+[Audio] t=93.50s event=event:/SFX/TileMatch action=one_shot count=81 fmod=yes value=-0.75 pos=(64,64) build=export
+[Game] state=PLAYING board=8 time=36.7 redness=0.343 matched=2/16 score=60850 combo=1 blobs=0 bubbles=0 last_tiles_ms=0.735 avg_ms=0.751
+[Audio] t=93.88s event=event:/SFX/Brush action=one_shot count=77 fmod=yes value=0.09 pos=(278,22) build=export
+[Audio] t=94.12s event=event:/SFX/TileMatch action=one_shot count=82 fmod=yes value=0.25 pos=(320,64) build=export
+[Audio] t=94.46s event=event:/SFX/Brush action=one_shot count=78 fmod=yes value=0.59 pos=(406,22) build=export
+[Audio] t=94.63s event=Redness action=param count=40 fmod=yes value=0.42 pos=(0,0) build=export
+[Audio] t=94.73s event=event:/SFX/TileMatch action=one_shot count=83 fmod=yes value=0.75 pos=(448,64) build=export
+[Audio] t=94.73s event=Intensity action=param count=51 fmod=yes value=0.11 pos=(0,0) build=export
+[Audio] t=94.98s event=event:/SFX/BlobSpawn action=one_shot count=14 fmod=yes value=0.94 pos=(496,374) build=export
+[Audio] t=95.12s event=event:/SFX/Brush action=one_shot count=79 fmod=yes value=-0.91 pos=(22,150) build=export
+[Audio] t=95.46s event=event:/SFX/TileMatch action=one_shot count=84 fmod=yes value=-0.75 pos=(64,192) build=export
+[Audio] t=95.46s event=Intensity action=param count=52 fmod=yes value=0.22 pos=(0,0) build=export
+[Game] state=PLAYING board=8 time=34.7 redness=0.493 matched=5/16 score=62650 combo=4 blobs=1 bubbles=0 last_tiles_ms=0.749 avg_ms=0.751
+[Audio] t=95.88s event=event:/SFX/BlobPop action=one_shot count=14 fmod=yes value=0.75 pos=(447,361) build=export
+[Audio] t=95.89s event=Intensity action=param count=53 fmod=yes value=0.16 pos=(0,0) build=export
+[Audio] t=96.16s event=event:/SFX/BubbleSpawn action=one_shot count=7 fmod=yes value=-0.70 pos=(75,512) build=export
+[Audio] t=96.38s event=event:/SFX/Brush action=one_shot count=80 fmod=yes value=-0.41 pos=(150,150) build=export
+[Audio] t=96.60s event=event:/SFX/TileMatch action=one_shot count=85 fmod=yes value=-0.25 pos=(192,192) build=export
+[Capture] quit after 95 s
+[Audio] t=96.83s event=event:/Music/Theme action=stop count=1 fmod=yes value=0.00 pos=(0,0) build=export
+FMOD Sound System: System released

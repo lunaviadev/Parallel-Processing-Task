@@ -1,6 +1,4 @@
 extends SceneTree
-## Writes sample PNGs to res://images/ for the Benchmark Lab.
-## Run:  godot --headless --path parallel-gaming --script res://tools/generate_samples.gd
 
 const SIZES := [512, 1024, 2048, 4096]
 

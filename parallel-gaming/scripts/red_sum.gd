@@ -1,18 +1,7 @@
 class_name RedSum
 extends RefCounted
-## Sums the red (R) channel of an image, either on one thread or spread across
-## Godot's WorkerThreadPool (Godot's equivalent of Unity's Job System /
-## Unreal's ParallelFor).
-##
-## Every function returns a Dictionary:
-##   { mode, sum, pixels, width, height, mean_red, ms, threads, chunks }
-## and, for the RGB variant, also { sum_g, sum_b }.
 
 
-## One unit of parallel work. The image bytes are shared read-only by every
-## worker; each chunk (a band of rows) accumulates into a local variable and
-## writes its partial result exactly once, so workers never contend while
-## summing.
 class _Job:
 	extends RefCounted
 
@@ -32,8 +21,6 @@ class _Job:
 
 	func run_chunk_red(chunk: int) -> void:
 		var r := _range(chunk)
-		# Local copy (copy-on-write, no real copy): telemetry showed member
-		# access in the hot loop made 1-thread "parallel" ~50% slower than single.
 		var d := data
 		var s := 0
 		for i in range(r.x, r.y, 4):
@@ -59,8 +46,45 @@ class _Job:
 		mutex.unlock()
 
 
-## Returns an RGBA8, uncompressed version of the image (copying only if needed)
-## so every pixel is exactly 4 bytes and byte 0 of each pixel is red.
+class _TileJob:
+	extends RefCounted
+
+	var data: PackedByteArray
+	var width: int
+	var height: int
+	var cols: int
+	var rows: int
+	var rows_per_chunk: int
+	var col_bytes: PackedInt32Array
+	var row_of_y: PackedInt32Array
+	var partials: PackedInt64Array
+	var mutex := Mutex.new()
+
+	func run_chunk(chunk: int) -> void:
+		var d := data
+		var ry := row_of_y
+		var w4 := width * 4
+		var c := cols
+		var xs := col_bytes
+		var local := PackedInt64Array()
+		local.resize(c * rows)
+		var y0 := chunk * rows_per_chunk
+		var y1 := mini(y0 + rows_per_chunk, height)
+		for y in range(y0, y1):
+			var tile_row := ry[y]
+			var base := y * w4
+			for tc in c:
+				var s := 0
+				for i in range(base + xs[tc], base + xs[tc + 1], 4):
+					s += d[i]
+				local[tile_row * c + tc] += s
+		mutex.lock()
+		var off := chunk * c * rows
+		for k in local.size():
+			partials[off + k] = local[k]
+		mutex.unlock()
+
+
 static func to_rgba8(img: Image) -> Image:
 	if img.get_format() == Image.FORMAT_RGBA8 and not img.is_compressed():
 		return img
@@ -71,7 +95,6 @@ static func to_rgba8(img: Image) -> Image:
 	return copy
 
 
-## Baseline: one tight loop on the calling thread.
 static func sum_single(img: Image) -> Dictionary:
 	var src := to_rgba8(img)
 	var t0 := Time.get_ticks_usec()
@@ -83,9 +106,6 @@ static func sum_single(img: Image) -> Dictionary:
 	return _result("single", src, s, us, 1, 1)
 
 
-## Parallel: rows are split into `chunks` bands, executed by up to
-## `max_threads` pool workers. Defaults: all logical cores, 4 chunks per thread
-## (small enough bands for load balancing, large enough to hide task overhead).
 static func sum_parallel(img: Image, max_threads := -1, chunks := -1) -> Dictionary:
 	var src := to_rgba8(img)
 	var t0 := Time.get_ticks_usec()
@@ -101,7 +121,6 @@ static func sum_parallel(img: Image, max_threads := -1, chunks := -1) -> Diction
 	return _result("parallel", src, s, us, threads, n)
 
 
-## Parallel R, G and B in a single pass over memory (optional extension).
 static func sum_rgb_parallel(img: Image, max_threads := -1, chunks := -1) -> Dictionary:
 	var src := to_rgba8(img)
 	var t0 := Time.get_ticks_usec()
@@ -126,6 +145,60 @@ static func sum_rgb_parallel(img: Image, max_threads := -1, chunks := -1) -> Dic
 	return res
 
 
+@warning_ignore("integer_division")
+static func sum_tiles(img: Image, cols: int, rows: int, max_threads := -1, chunks := -1) -> Dictionary:
+	var src := to_rgba8(img)
+	var t0 := Time.get_ticks_usec()
+	var w := src.get_width()
+	var h := src.get_height()
+	cols = clampi(cols, 1, w)
+	rows = clampi(rows, 1, h)
+	var threads := max_threads if max_threads > 0 else OS.get_processor_count()
+	var n := clampi(chunks if chunks > 0 else threads * 2, 1, h)
+	var job := _TileJob.new()
+	job.data = src.get_data()
+	job.width = w
+	job.height = h
+	job.cols = cols
+	job.rows = rows
+	job.rows_per_chunk = ceili(float(h) / n)
+	n = ceili(float(h) / job.rows_per_chunk)
+	for i in cols + 1:
+		job.col_bytes.append((i * w / cols) * 4)
+	job.row_of_y.resize(h)
+	var row_counts := PackedInt64Array()
+	row_counts.resize(rows)
+	for tr in rows:
+		for y in range(tr * h / rows, (tr + 1) * h / rows):
+			job.row_of_y[y] = tr
+		row_counts[tr] = (tr + 1) * h / rows - tr * h / rows
+	var tiles := cols * rows
+	job.partials.resize(n * tiles)
+	var gid := WorkerThreadPool.add_group_task(job.run_chunk, n, threads, true, "RedSum tiles")
+	WorkerThreadPool.wait_for_group_task_completion(gid)
+	var tile_sums := PackedInt64Array()
+	tile_sums.resize(tiles)
+	for c in n:
+		var off := c * tiles
+		for k in tiles:
+			tile_sums[k] += job.partials[off + k]
+	var total := 0
+	for v in tile_sums:
+		total += v
+	var us := Time.get_ticks_usec() - t0
+	var tile_pixels := PackedInt64Array()
+	tile_pixels.resize(tiles)
+	for tr in rows:
+		for tc in cols:
+			tile_pixels[tr * cols + tc] = row_counts[tr] * ((tc + 1) * w / cols - tc * w / cols)
+	var res := _result("parallel_tiles", src, total, us, threads, n)
+	res["cols"] = cols
+	res["rows"] = rows
+	res["tile_sums"] = tile_sums
+	res["tile_pixels"] = tile_pixels
+	return res
+
+
 static func _make_job(src: Image, max_threads: int, chunks: int) -> _Job:
 	var threads := max_threads if max_threads > 0 else OS.get_processor_count()
 	var h := src.get_height()
@@ -136,7 +209,7 @@ static func _make_job(src: Image, max_threads: int, chunks: int) -> _Job:
 	job.row_bytes = src.get_width() * 4
 	job.height = h
 	job.rows_per_chunk = ceili(float(h) / n)
-	n = ceili(float(h) / job.rows_per_chunk)  # drop empty trailing chunks
+	n = ceili(float(h) / job.rows_per_chunk)
 	job.partials_r.resize(n)
 	job.set_meta("threads", threads)
 	return job
